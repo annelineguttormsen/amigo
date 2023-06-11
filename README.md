@@ -1,0 +1,2 @@
+# amigo
+Component library
