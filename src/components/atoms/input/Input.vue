@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { defineProps, defineEmits } from 'vue'
+import { v4 as uuidv4 } from 'uuid'
 
 defineProps({
   label: {
@@ -21,17 +22,23 @@ const emit = defineEmits(['update:modelValue'])
 function updateValue(value):void {
   emit('update:modelValue', value)
 }
+
+const uuid = uuidv4()
 </script>
 
 <template>
   <div class="wrapper">
-    <label class="label">
+    <label 
+      class="label"
+      :for="uuid"
+    >
       {{ label }}
     </label>
     <input
       type="text"
       :class="{'input--error' : error}"
       class="input"
+      :id="uuid"
       :value="modelValue"
       @blur="updateValue(($event.target as HTMLInputElement).value)"
     />
