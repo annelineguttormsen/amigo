@@ -15,6 +15,10 @@ module.exports = {
   ],
   theme: {
     spacing: generateSizing(6, 'rem'),
+    colors: {
+      transparent: 'transparent',
+      purple: '#7360DF',
+    },
     extend: {},
   },
   plugins: [],
