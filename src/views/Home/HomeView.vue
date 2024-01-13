@@ -8,6 +8,7 @@
   import { stringRequiredSchema, numberRequiredSchema } from '@/validation/schema'
   import Dialog from '@/components/organisms/Dialog.vue'
   import Input from '@/components/atoms/input/Input.vue'
+  import ButtonPrimary from '@/components/atoms/Button.Primary.vue'
 
   const router = useRouter()
   
@@ -80,11 +81,11 @@
         :error="projectStitchesError"
         :required="true"
       />
-      <button
+      <ButtonPrimary
         @click="validateAndCreateProject()"
       >
         Create project
-      </button>
+      </ButtonPrimary>
     </template>
   </Dialog>
 </template>
