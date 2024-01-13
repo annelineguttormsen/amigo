@@ -1,11 +1,10 @@
 <script lang="ts" setup>
-import { defineProps, defineEmits } from 'vue'
 import { v4 as uuidv4 } from 'uuid'
 
 defineProps({
   label: {
     type: String,
-    required: true,
+    required: false,
   },
   modelValue: {
     type: String,
@@ -14,6 +13,11 @@ defineProps({
   error: {
     type: String,
     required: false
+  },
+  required: {
+    type: Boolean,
+    required: false,
+    default: false
   }
 })
 
@@ -29,10 +33,22 @@ const uuid = uuidv4()
 <template>
   <div class="wrapper">
     <label 
-      class="label"
+      class="font-semibold text-base leading-normal self-start"
       :for="uuid"
     >
-      {{ label }}
+      <span>{{ label }}</span>
+      <span
+        v-if="required"
+        class="text-gray italic"
+      >
+        (Required)
+      </span>
+      <span
+        v-else
+        class="text-gray italic"
+      >
+        (Optional)
+      </span>
     </label>
     <input
       type="text"
@@ -56,11 +72,6 @@ const uuid = uuidv4()
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-}
-.label {
-  font-size: 1rem;
-  line-height: 1.2;
-  font-weight: 600;
 }
 .input {
   all: unset;
