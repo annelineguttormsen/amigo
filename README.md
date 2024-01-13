@@ -1,4 +1,4 @@
-# amigo
+# Amigo :knot:
 
 Counting buddy for crochet projects <3
 
