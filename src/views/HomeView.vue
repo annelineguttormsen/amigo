@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-  import { ref, computed } from 'vue'
+  import { ref } from 'vue'
+  import { RouterLink } from 'vue-router'
   import { makeNewProject } from '@/util/projects.util'
   import { getItem } from '@/util/localstorage.util'
   import Counter from '@/components/Counter.vue'
@@ -11,17 +12,7 @@
     makeNewProject("TEST", 10, 10)
   }
 
-  const crochetProjects= computed<CrochetProject[] | undefined>(() =>{
-    const crochetProjectIds = getItem(StorageCrochetId.ListOfCrochetProjects)
-    if (crochetProjectIds == undefined) {
-      return undefined
-    }
-    const crochetProjects : CrochetProject[] | [] = []
-    crochetProjectIds.forEach(id => {
-      crochetProjects.push(getItem(`${StorageCrochetId.CrochetProject}#${id}`))
-    });
-    return crochetProjects
-  })
+  const crochetProjectIds = getItem(StorageCrochetId.ListOfCrochetProjects)
 </script>
 
 <template>
@@ -32,17 +23,19 @@
     Lag prosjekt
   </button>
   <p
-    v-if="crochetProjects == undefined"
+    v-if="crochetProjectIds == undefined"
   >
     Ingen lagrede prosjekter
   </p>
   <div
     v-else
   >
-    <button
-      v-for="(crochetProject, index) in crochetProjects"
+    <RouterLink
+      v-for="id in crochetProjectIds"
+      :key="id"
+      :to="`project?id=${id}`" 
     >
-      Åpne opp prosjekt {{ crochetProject?.name }}
-    </button>
+      Åpne opp prosjekt {{ getItem(`${StorageCrochetId.CrochetProject}#${id}`)?.name }}
+    </RouterLink>
   </div>
 </template>
