@@ -1,12 +1,8 @@
 <script lang="ts" setup>
-  import { ref } from 'vue'
   import { RouterLink } from 'vue-router'
   import { makeNewProject } from '@/util/projects.util'
   import { getItem } from '@/util/localstorage.util'
-  import Counter from '@/components/Counter.vue'
-  import { StorageCrochetId, type CrochetProject } from '@/interfaces/globalInterfaces'
-
-  const counterValue = ref(0)
+  import { StorageCrochetId } from '@/interfaces/globalInterfaces'
 
   function newProject() {
     makeNewProject("TEST", 10, 10)
@@ -16,7 +12,6 @@
 </script>
 
 <template>
-  <Counter v-model="counterValue"/>
   <button
     @click="newProject()"
   >
