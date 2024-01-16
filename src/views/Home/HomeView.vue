@@ -56,7 +56,7 @@
       :key="id"
       :to="`project?id=${id}`" 
     >
-      Åpne opp prosjekt {{ getItem(`${StorageCrochetId.CrochetProject}#${id}`)?.name }}
+      Open up the project '{{ getItem(`${StorageCrochetId.CrochetProject}#${id}`)?.name }}'
     </CardLink>
   </div>
   <Dialog
