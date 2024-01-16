@@ -10,12 +10,12 @@ export interface ICrochetProject {
   info?: string
   meta: {
     totalRows: number
-    totalStitches: number
+    stitchesPerRow: number
   }
 }
 
 export interface ICrochetCounter {
-  // when stitches equals totalStitches, count.rows gets updated with one
+  // when stitches equals stitchesPerRow, count.rows gets updated with one
   rows: number
   stitches: number
 }
@@ -26,15 +26,15 @@ export class CrochetProject implements ICrochetProject {
   info?: string | undefined
   meta: {
     totalRows: number
-    totalStitches: number
+    stitchesPerRow: number
   }
 
-  constructor(id: string, name: string, totalRows: number, totalStitches: number, info?: string) {
+  constructor(id: string, name: string, totalRows: number, stitchesPerRow: number, info?: string) {
     this.id = `CROCHET_PROJECT#${id}`
     this.name = name
     this.meta = {
       totalRows: totalRows,
-      totalStitches: totalStitches
+      stitchesPerRow: stitchesPerRow
     }
     if (info) {
       this.info = info

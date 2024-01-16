@@ -2,11 +2,11 @@ import { CrochetProject, StorageCrochetId, type ICrochetProject } from '@/interf
 import { getItem, setItem } from './localstorage.util'
 import { CrochetCounter } from '../interfaces/globalInterfaces'
 
-export function makeNewProject(name: string, totalRows: number, totalStitches: number, info?: string) : string {
+export function makeNewProject(name: string, totalRows: number, stitchesPerRow: number, info?: string) : string {
   const id = crypto.randomUUID()
 
   // create new crochet project with details
-  const newCrochetProject : CrochetProject = new CrochetProject(id, name, totalRows, totalStitches, info)
+  const newCrochetProject : CrochetProject = new CrochetProject(id, name, totalRows, stitchesPerRow, info)
   
   // if there are no saved projects, create an empty array
   const savedCrochetProjects : string[] = getItem(StorageCrochetId.ListOfCrochetProjects) ?? []
