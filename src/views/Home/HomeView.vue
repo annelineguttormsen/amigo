@@ -9,6 +9,7 @@
   import Dialog from '@/components/organisms/Dialog.vue'
   import Input from '@/components/atoms/input/Input.vue'
   import ButtonPrimary from '@/components/atoms/Button.Primary.vue'
+  import CardLink from '@/components/molecules/Card.Link.vue'
 
   const router = useRouter()
   
@@ -47,14 +48,15 @@
   </p>
   <div
     v-else
+    class="grid grid-cols-3 gap-1"
   >
-    <RouterLink
+    <CardLink
       v-for="id in crochetProjectIds"
       :key="id"
       :to="`project?id=${id}`" 
     >
       Åpne opp prosjekt {{ getItem(`${StorageCrochetId.CrochetProject}#${id}`)?.name }}
-    </RouterLink>
+    </CardLink>
   </div>
   <Dialog
     v-model="showCreateProjectDialog"
