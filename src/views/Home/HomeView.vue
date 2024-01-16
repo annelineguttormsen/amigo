@@ -35,16 +35,17 @@
 </script>
 
 <template>
-  <button
+  <h1>Amigo</h1>
+  <ButtonPrimary
     @click="showCreateProjectDialog = true"
-    class="p-0.25"
   >
-    Lag prosjekt
-  </button>
+    Create project
+  </ButtonPrimary>
+  <h2>Saved projects</h2>
   <p
     v-if="crochetProjectIds == undefined"
   >
-    Ingen lagrede prosjekter
+    No saved projects
   </p>
   <div
     v-else
