@@ -16,7 +16,7 @@ const props = defineProps({
   >
     <span><slot /></span>
     <svg 
-      class="w-2 h-2"
+      class="w-2 h-2 flex-none"
       viewBox="0 0 24 24" 
       fill="none" 
       xmlns="http://www.w3.org/2000/svg" 
