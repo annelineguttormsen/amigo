@@ -13,7 +13,7 @@ export function makeNewProject(name: string, totalRows: number, stitchesPerRow: 
   savedCrochetProjects.push(id)
 
   // create crochet counter
-  const newCrochetCounter : CrochetCounter = new CrochetCounter(id)
+  const newCrochetCounter : CrochetCounter = new CrochetCounter(id, 0, 0)
   
   // save all the values, with id, to local storage
   setItem(`${StorageCrochetId.CrochetProject}#${id}`, newCrochetProject)
