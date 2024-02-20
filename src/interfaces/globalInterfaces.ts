@@ -43,6 +43,7 @@ export class CrochetProject implements ICrochetProject {
 }
 
 export class CrochetCounter implements ICrochetCounter {
+  id: string
   rows: number
   stitches: number
   
