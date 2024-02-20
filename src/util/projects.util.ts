@@ -23,3 +23,21 @@ export function makeNewProject(name: string, totalRows: number, stitchesPerRow: 
   // return the ID of the project
   return id
 }
+
+export function getCrochetCounter(id: string) : CrochetCounter | undefined {
+  const localStorageCounter = getItem(`${StorageCrochetId.CrochetProjectCounter}#${id}`) as CrochetCounter
+  if (localStorageCounter != undefined || Object.keys(localStorageCounter).length == 0) {
+    return new CrochetCounter(localStorageCounter.id, localStorageCounter.rows, localStorageCounter.stitches)
+  } else {
+    return undefined
+  }
+}
+
+export function getCrochetProject(id: string) : CrochetProject | undefined {
+  const localStorageProject = getItem(`${StorageCrochetId.CrochetProject}#${id}`) as CrochetProject
+  if (localStorageProject != undefined || Object.keys(localStorageProject).length == 0) {
+    return new CrochetProject(localStorageProject.id, localStorageProject.name, localStorageProject.meta.totalRows, localStorageProject.meta.stitchesPerRow)
+  } else {
+    return undefined
+  }
+}
