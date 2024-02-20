@@ -47,10 +47,10 @@ export class CrochetCounter implements ICrochetCounter {
   rows: number
   stitches: number
   
-  constructor(id: string) {
+  constructor(id: string, rows: number, stitches: number) {
     this.id = id
-    this.rows = 0
-    this.stitches = 0
+    this.rows = rows
+    this.stitches = stitches
   }
 
   incrementStitches(increment: number) : void {
