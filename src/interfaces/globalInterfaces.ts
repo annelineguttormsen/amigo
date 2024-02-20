@@ -61,6 +61,10 @@ export class CrochetCounter implements ICrochetCounter {
     this.stitches -= reducement
   }
 
+  setStitches(amount: number) : void {
+    this.stitches = amount
+  }
+
   resetStitches() : void {
     this.stitches = 0
   }
