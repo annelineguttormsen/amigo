@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { v4 as uuidv4 } from 'uuid'
+import InputCondition from './InputCondition.vue'
 
 defineProps({
   label: {
@@ -36,19 +37,8 @@ const uuid = uuidv4()
       class="font-semibold text-base leading-normal self-start"
       :for="uuid"
     >
-      <span>{{ label }}</span>
-      <span
-        v-if="required"
-        class="text-gray italic"
-      >
-        (Required)
-      </span>
-      <span
-        v-else
-        class="text-gray italic"
-      >
-        (Optional)
-      </span>
+      <span>{{ label }}&thinsp;</span>
+      <InputCondition :required="!!required" />
     </label>
     <input
       type="text"

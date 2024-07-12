@@ -2,6 +2,7 @@
 import { v4 as uuidv4 } from 'uuid'
 import Radio from '@/components/atoms/input/Radio.vue'
 import type { RadioOption } from './interfaces'
+import InputCondition from './InputCondition.vue';
 
 interface Props {
   legend: string
@@ -26,19 +27,10 @@ const uuid = uuidv4()
 <template>
   <fieldset class="flex flex-col items-start gap-0.5 border-none p-0">
     <legend class="font-semibold leading-normal mb-0.5">
-      <span>{{ props.legend }}</span>
-      <span
-        v-if="required"
-        class="text-gray italic"
-      >
-        (Required)
-      </span>
-      <span
-        v-else
-        class="text-gray italic"
-      >
-        (Optional)
-      </span>
+      <span>{{ props.legend }}&thinsp;</span>
+      <InputCondition 
+        :required="!!props.required" 
+      />
     </legend>
     <Radio 
       @update:modelValue="updateValue($event)"
