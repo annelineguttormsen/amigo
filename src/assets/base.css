@@ -13,6 +13,8 @@
   box-sizing: border-box;
   margin: 0;
   word-break: break-word;
+  /* remove effect of elements lighting up on tap */
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* reset default margin */
